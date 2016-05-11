@@ -1,5 +1,5 @@
 """
-Hra piskvorky 1D pre http://pyladies.cz/praha/ => Lekce 6 - Testován
+Hra piskvorky 1D pre http://pyladies.cz/praha/ => Lekce 6 - Testování
 
 Zadanie podla http://pyladies.cz/v1/s004-strings/handout/handout4.pdf => uloha 9 a nasledujuce.
 """
