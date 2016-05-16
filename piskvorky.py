@@ -46,6 +46,10 @@ def tah(pole, cislo_policka, symbol):
     return pole[:cislo_policka] + symbol + pole[cislo_policka + 1:]
 
 
+# pouzijme explicitne premennu pre funkciu input, aby sme ju mohli zmenit pri testovani
+input_pre_tah_hrace = input
+
+
 def tah_hrace(pole):
     """11. Napiš funkci tah_hrace, která dostane řetězec s herním polem, zeptá se hráče, na kterou pozici chce hrát,
     a vrátí herní pole se zaznamenaným tahem hráče.
@@ -56,7 +60,7 @@ def tah_hrace(pole):
     print("Cisla poli: 01234567890123456789")
     print("                      1111111111")
     while True:
-        znak = input("Cislo policka 0-19: ")
+        znak = input_pre_tah_hrace("Cislo policka 0-19: ")
         try:
             cislo_policka = int(znak)
         except ValueError:
