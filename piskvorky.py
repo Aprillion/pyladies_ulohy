@@ -52,6 +52,9 @@ def tah_hrace(pole):
     Funkce by měla odmítnout záporná nebo příliš velká čísla, a tahy na obsazená políčka. Pokud uživatel
     zadá špatný vstup, funkce mu vynadá a zeptá se znova."""
     print("Herni pole: {}".format(pole))
+    # TODO: napoveda je pre velkost pola 20. treba upravit na rozne velkosti, idealne v samostatnej funkcii
+    print("Cisla poli: 01234567890123456789")
+    print("                      1111111111")
     while True:
         znak = input("Cislo policka 0-19: ")
         try:
@@ -59,8 +62,10 @@ def tah_hrace(pole):
         except ValueError:
             print("Prosim, zadej cele cislo, ne `{}`.".format(znak))
         else:
-            if (cislo_policka < 0 or cislo_policka > 19):
+            if cislo_policka < 0 or cislo_policka > 19:
                 print("Prosim, zadej cislo v rozmedzi 0 az 19 (vcetne).")
+            elif pole[cislo_policka] != "-":
+                print("Policko {} je obsadene, skus znova.".format(cislo_policka))
             else:
                 # implicitne break
                 return tah(pole, cislo_policka, "x")
@@ -85,4 +90,4 @@ def piskvorky1d():
 if __name__ == '__main__':
     # TODO: odkomentuj po implementacii poslednej funkcie
     # piskvorky1d()
-    print(tah_hrace("-" * 20))
+    print(tah_hrace("----------x---------"))
