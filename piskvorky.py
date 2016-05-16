@@ -52,8 +52,18 @@ def tah_hrace(pole):
     Funkce by měla odmítnout záporná nebo příliš velká čísla, a tahy na obsazená políčka. Pokud uživatel
     zadá špatný vstup, funkce mu vynadá a zeptá se znova."""
     print("Herni pole: {}".format(pole))
-    cislo_policka = int(input("Cislo policka 0-19: "))
-    return tah(pole, cislo_policka, "x")
+    while True:
+        znak = input("Cislo policka 0-19: ")
+        try:
+            cislo_policka = int(znak)
+        except ValueError:
+            print("Prosim, zadej cele cislo, ne `{}`.".format(znak))
+        else:
+            if (cislo_policka < 0 or cislo_policka > 19):
+                print("Prosim, zadej cislo v rozmedzi 0 az 19 (vcetne).")
+            else:
+                # implicitne break
+                return tah(pole, cislo_policka, "x")
 
 
 def tah_pocitace():
