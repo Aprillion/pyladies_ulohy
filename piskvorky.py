@@ -67,3 +67,8 @@ def piskvorky1d():
     """13. Napiš funkci piskvorky1d, která vytvoří řetězec s herním polem, a střídavě volá funkce tah_hrace a
     tah_pocitace, dokud někdo nevyhraje nebo nedojde k remíze. Nezapomeň kontrolovat stav hry po každém tahu."""
     pass
+
+# spustaci subor je hra.py, aby sme mohli testovat bez spustenia hry.
+# alternativne mozme definovat kod ktory sa sice spusti pri spusteni suboru, ale nie pri importovani:
+if __name__ == '__main__':
+    piskvorky1d()
