@@ -46,12 +46,14 @@ def tah(pole, cislo_policka, symbol):
     return pole[:cislo_policka] + symbol + pole[cislo_policka + 1:]
 
 
-def tah_hrace():
+def tah_hrace(pole):
     """11. Napiš funkci tah_hrace, která dostane řetězec s herním polem, zeptá se hráče, na kterou pozici chce hrát,
     a vrátí herní pole se zaznamenaným tahem hráče.
     Funkce by měla odmítnout záporná nebo příliš velká čísla, a tahy na obsazená políčka. Pokud uživatel
     zadá špatný vstup, funkce mu vynadá a zeptá se znova."""
-    pass
+    print("Herni pole: {}".format(pole))
+    cislo_policka = int(input("Cislo policka 0-19: "))
+    return tah(pole, cislo_policka, "x")
 
 
 def tah_pocitace():
@@ -71,4 +73,6 @@ def piskvorky1d():
 # spustaci subor je hra.py, aby sme mohli testovat bez spustenia hry.
 # alternativne mozme definovat kod ktory sa sice spusti pri spusteni suboru, ale nie pri importovani:
 if __name__ == '__main__':
-    piskvorky1d()
+    # TODO: odkomentuj po implementacii poslednej funkcie
+    # piskvorky1d()
+    print(tah_hrace("-" * 20))
