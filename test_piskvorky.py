@@ -65,3 +65,24 @@ def test_tah_hrace_pre_pokrocilych():
     assert p.tah_hrace("-----") == "x----"  # pouzi poslednu 0, tiez validny vstup
 
     p.input_pre_tah_hrace = original_input
+
+
+def test_tah_pocitace():
+    assert p.tah_pocitace("ox-x") == "oxox"
+    # otestuj ci je funkcia dostatocne "random" (zmaz test po implementovani nejakej ne-random strategii)
+    bola_pozicia_0 = 0
+    bola_pozicia_1 = 0
+    bola_pozicia_2 = 0
+    for i in range(100):
+        tah = p.tah_pocitace("---")
+        if tah == "o--":
+            bola_pozicia_0 += 1
+        elif tah == "-o-":
+            bola_pozicia_1 += 1
+        elif tah == "--o":
+            bola_pozicia_2 += 1
+        else:
+            raise AssertionError("Ina pozicia: {}".format(tah))
+    assert bola_pozicia_0 > 0
+    assert bola_pozicia_1 > 0
+    assert bola_pozicia_2 > 0

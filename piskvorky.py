@@ -19,6 +19,7 @@ Rozděl1DPiškvorkynačtyřimoduly:
 • hra.py, kde bude import a volání hlavní funk cez piskvorky.py (a nic jiného)
 • test_piskvorky.py, kde budou testy
 """
+import random
 
 
 def vyhodnot(pole):
@@ -75,13 +76,16 @@ def tah_hrace(pole):
                 return tah(pole, cislo_policka, "x")
 
 
-def tah_pocitace():
+def tah_pocitace(pole):
     """12. Napiš funkci tah_pocitace, která dostane řetězec s herním polem, vybere pozici, na kterou hrát, a vrátí
     herní pole se zaznamenaným tahem počítače. Použij jednoduchou náhodnou „strategii”:
     1.    Vyber číslo od 0 do 19
     2.    Pokud je dané políčko volné, hrej na něj
     3.    Pokud ne, opakuj od bodu 1"""
-    pass
+    while True:
+        cislo_policka = random.randrange(len(pole))
+        if pole[cislo_policka] == "-":
+            return tah(pole, cislo_policka, "o")
 
 
 def piskvorky1d():
@@ -94,4 +98,4 @@ def piskvorky1d():
 if __name__ == '__main__':
     # TODO: odkomentuj po implementacii poslednej funkcie
     # piskvorky1d()
-    print(tah_hrace("----------x---------"))
+    print(tah_pocitace("xx-xx-xx"))
