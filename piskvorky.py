@@ -61,7 +61,7 @@ def tah_hrace(pole):
     print("Cisla poli: 01234567890123456789")
     print("                      1111111111")
     while True:
-        znak = input_pre_tah_hrace("Cislo policka 0-19: ")
+        znak = input_pre_tah_hrace("Zadej cislo policka 0-19: ")
         try:
             cislo_policka = int(znak)
         except ValueError:
@@ -91,11 +91,29 @@ def tah_pocitace(pole):
 def piskvorky1d():
     """13. Napiš funkci piskvorky1d, která vytvoří řetězec s herním polem, a střídavě volá funkce tah_hrace a
     tah_pocitace, dokud někdo nevyhraje nebo nedojde k remíze. Nezapomeň kontrolovat stav hry po každém tahu."""
-    pass
+    pole = "-" * 20
+    na_tahu = "x"
+    while True:
+        if na_tahu == "x":
+            pole = tah_hrace(pole)
+            na_tahu = "o"
+        elif na_tahu == "o":
+            pole = tah_pocitace(pole)
+            na_tahu = "x"
+        vysledek = vyhodnot(pole)
+        if vysledek != "-":
+            if vysledek == "!":
+                print("Remize! {}".format(pole))
+            elif vysledek == "x":
+                print("Vyhral(a) jsi nad pocitacem! {}".format(pole))
+            elif vysledek == "o":
+                print("Bohuzel, pocitac vyhral. {}".format(pole))
+            else:
+                raise ValueError("Necakany vysledek `{}`!?!".format(vysledek))
+            return
+
 
 # spustaci subor je hra.py, aby sme mohli testovat bez spustenia hry.
 # alternativne mozme definovat kod ktory sa sice spusti pri spusteni suboru, ale nie pri importovani:
 if __name__ == '__main__':
-    # TODO: odkomentuj po implementacii poslednej funkcie
-    # piskvorky1d()
-    print(tah_pocitace("xx-xx-xx"))
+    piskvorky1d()
