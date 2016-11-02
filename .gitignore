@@ -107,5 +107,3 @@ pyvenv.cfg
 pip-selfcheck.json
 ### IPythonNotebook template
 # Temporary data
-.ipynb_checkpoints/
-
