@@ -1,17 +1,9 @@
-def empty_function():
-    pass
+# prosim ignoruj prvy riadok a prepis si naozajstny subor my_functions.py (alebo vyvor novy)
 
-def do_something():
-    print("inside function do_something")
-    
-def return_something():
-    return "inside function return_something"
 
-def rectangle_cicumference(width, height):
-    return 2 * (width + height)
-    
-print("main script")
-x = return_something()
-do_something()
-print(rectangle_cicumference(4, 2))
-print("the end")
+def obvod_obdelniku(sirka, vyska):
+    "Vrati obvod obdelnika danych rozmeru"
+    return 2 * (sirka + vyska)
+
+print(obvod_obdelniku(4, 2))
+print(obvod_obdelniku(6, 3))
