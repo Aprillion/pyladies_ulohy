@@ -3,6 +3,8 @@ import pyglet
 WIDTH = 800
 HEIGHT = 600
 
+spaceship_img = pyglet.image.load('playerShip1_blue.png')
+
 objects = []
 batch = pyglet.graphics.Batch()
 
@@ -21,6 +23,7 @@ window.push_handlers(
 class Spaceship:
     def __init__(self, window):
         self.window = window
+        self.sprite = pyglet.sprite.Sprite(spaceship_img, batch=batch)
 
 objects.append(Spaceship(window))
 
