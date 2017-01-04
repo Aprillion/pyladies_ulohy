@@ -17,4 +17,11 @@ window.push_handlers(
     on_draw=draw
 )
 
+
+class Spaceship:
+    def __init__(self, window):
+        self.window = window
+
+objects.append(Spaceship(window))
+
 pyglet.app.run()
