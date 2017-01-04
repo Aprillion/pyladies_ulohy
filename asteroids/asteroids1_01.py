@@ -24,10 +24,16 @@ window.push_handlers(
 
 class Spaceship:
     def __init__(self, window):
+        self.x = window.width // 2
+        self.y = window.height // 2
+        self.x_speed = 0
+        self.y_speed = 0
+        self.rotation = 0
         self.window = window
         self.sprite = pyglet.sprite.Sprite(spaceship_img, batch=batch)
-        self.sprite.x = window.width // 2
-        self.sprite.y = window.height // 2
+        self.sprite.x = self.x
+        self.sprite.y = self.y
+        self.sprite.rotation = 90 - self.rotation
 
 objects.append(Spaceship(window))
 
