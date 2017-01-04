@@ -27,17 +27,20 @@ class Spaceship:
     def __init__(self, window):
         self.x = window.width // 2
         self.y = window.height // 2
-        self.x_speed = 0
+        self.x_speed = -20  # TODO: zmen na 0 po implementacii klaves
         self.y_speed = 0
         self.rotation = 0
         self.window = window
         self.sprite = pyglet.sprite.Sprite(spaceship_img, batch=batch)
-        self.sprite.x = self.x
-        self.sprite.y = self.y
-        self.sprite.rotation = 90 - self.rotation
 
     def tick(self, dt):
         # TODO: podivej se do pressed_keys
+        self.x += self.x_speed * dt
+        self.y += self.y_speed * dt
+
+        self.sprite.x = self.x
+        self.sprite.y = self.y
+        self.sprite.rotation = 90 - self.rotation
         pass
 
 
